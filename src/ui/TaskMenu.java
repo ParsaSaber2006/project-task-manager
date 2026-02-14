@@ -43,7 +43,8 @@ public class TaskMenu extends IOConsole {
         try {
             project = (Project) SearchService.findId(projectId , 1);
             ArrayList<Task> allTasks = TaskService.getTasks();
-            tasks = FilterService.filterTask("" , allTasks , project);
+            String filters = ConsoleMenu.getFilters();
+            tasks = FilterService.filterTask(filters , allTasks , project);
         }catch (Exception e) {
             print(e.getMessage());
             return;
