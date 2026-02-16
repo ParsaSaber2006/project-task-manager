@@ -44,7 +44,7 @@ public class ConsoleMenu extends IOConsole {
         print("[1] Project \n[2] Task");
         int type = inputInt();
         Model item = null;
-        ArrayList<Model> list = new ArrayList<>();
+        ArrayList<? extends Model> list = new ArrayList<>();
 
         switch (according){
             case 1->{

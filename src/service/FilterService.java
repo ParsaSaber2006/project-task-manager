@@ -3,7 +3,6 @@ package service;
 import model.Project;
 import model.Task;
 import ui.ConsoleMenu;
-
 import java.util.*;
 
 public class FilterService {
@@ -12,23 +11,23 @@ public class FilterService {
         filter = filter.toLowerCase();
         switch (filter){
             case "name"->{
-                Collections.sort(tasks , Comparator.comparing((Task t) -> t.name));
+                tasks.sort(Comparator.comparing((Task t) -> t.name));
                 ConsoleMenu.print("name filter completed");
             }
             case "status"->{
-                Collections.sort(tasks, Comparator.comparing((Task t) -> t.getStatus().getValue()));
+                tasks.sort(Comparator.comparing((Task t) -> t.getStatus().getValue()));
                 ConsoleMenu.print("status filter completed");
             }
             case "deadline"->{
-                Collections.sort(tasks, Comparator.comparing((Task t) -> t.deadLine));
+                tasks.sort(Comparator.comparing((Task t) -> t.deadLine));
                 ConsoleMenu.print("deadline filter completed");
             }
             case "priority"->{
-                Collections.sort(tasks , Comparator.comparing((Task t) -> t.priority));
+                tasks.sort(Comparator.comparing((Task t) -> t.priority));
                 ConsoleMenu.print("priority filter completed");
             }
             case "project belongs"->{
-                Collections.sort(tasks, Comparator.comparing((Task t) -> t.belongsTo.name));
+                tasks.sort(Comparator.comparing((Task t) -> t.belongsTo.name));
                 ConsoleMenu.print("belongs filter completed");
             }
             default -> ConsoleMenu.print(filter + " is not recognized");

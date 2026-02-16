@@ -13,7 +13,7 @@ public class UniqueException extends Exception {
     }
 
     public static void name(String name, Model old , Project project) throws UniqueException {
-        ArrayList<Model> list;
+        ArrayList<? extends Model> list;
         try {
             int type = project == null ? 1 : 2;
             list = SearchService.findName(name , type);

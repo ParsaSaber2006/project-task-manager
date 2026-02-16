@@ -1,7 +1,6 @@
 package ui;
 
 import exception.EmptyListException;
-import exception.UniqueException;
 import model.Project;
 import service.ProjectService;
 
@@ -22,7 +21,7 @@ public class ProjectMenu extends IOConsole {
 
     public static void projectsMenu(int id) {
         print("---------------------");
-        print("selected \nwhat do you want to do?\n[1] Add task \n[2] Show tasks \n[3] Edit \n[4] Delete \n[5] Back to main menu");
+        print("what do you want to do?\n[1] Add task \n[2] Show tasks \n[3] Edit \n[4] Delete \n[5] Back to main menu");
         print("---------------------");
 
         switch (inputInt()) {
@@ -53,7 +52,7 @@ public class ProjectMenu extends IOConsole {
         try {
             ProjectService.create(projectName);
             print("New project created");
-        }catch (UniqueException e){
+        }catch (Exception e){
             print(e.getMessage());
             print("try again");
         }finally {

@@ -34,7 +34,7 @@ public class IOConsole {
 
     public static String inputLine(String message) {
         System.out.print(message + ": ");
-        return input.nextLine();
+        return input.nextLine().trim();
     }
 
 

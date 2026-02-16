@@ -1,6 +1,7 @@
 package service;
 
 import exception.DeadLineException;
+import exception.RequiredFieldsException;
 import exception.UniqueException;
 import model.Priority;
 import model.Project;
@@ -18,7 +19,9 @@ public class TaskService {
         Project project = (Project) SearchService.findId(projectId , 1);
         DeadLineException.checkDeadLine(deadLine);
         deadLineDate = LocalDateTime.parse(deadLine , DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-        Task.addTask(new Task(project, name, description, priority, deadLineDate));
+        Task newTask = new Task(project, name, description, priority, deadLineDate);
+        RequiredFieldsException.checkRequiredFields(newTask);
+        Task.addTask(newTask);
     }
 
 
