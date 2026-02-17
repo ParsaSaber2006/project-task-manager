@@ -6,8 +6,8 @@ import model.Model;
 import java.util.ArrayList;
 
 public class SearchService {
-    public static ArrayList<Model> findName(String name , int type) throws Exception {
-        ArrayList<Model> list;
+    public static ArrayList<? extends Model> findName(String name , int type) throws Exception {
+        ArrayList<? extends Model> list;
         if (type == 1) {
             list = new ArrayList<>(ProjectService.getProjects());
         }else if (type == 2) {
